@@ -13,6 +13,7 @@ public class MainRegion {
         RegionRepository regionRepository = RegionRepository.getInstance();
         Region idf = regionRepository.findOneBy("name","Île-de-France");
         System.out.println("Population en IDF : "+regionRepository.findPopulationByRegion(idf));
+        regionRepository.findCitiesByRegion(idf).forEach(System.out::println);
     }
 
 }

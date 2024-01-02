@@ -1,10 +1,12 @@
 package com.example.poec.repository;
 
+import com.example.poec.entity.City;
 import com.example.poec.entity.Department;
 import com.example.poec.entity.Region;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegionRepository extends AbstractRepository<Region> {
@@ -55,4 +57,16 @@ public class RegionRepository extends AbstractRepository<Region> {
         }
         return population_totale;
     }
+
+    public List<City> findCitiesByRegion(Region region){
+        List<City> cities = new ArrayList<>();
+        CityRepository cityRepository = CityRepository.getInstance();
+        DepartmentRepository departmentRepository = DepartmentRepository.getInstance();
+        List<Department> departments = departmentRepository.findDepartmentsByRegion(region);
+        for(Department d : departments){
+            cities.addAll(cityRepository.findCitiesByDepartment(d));
+        }
+        return cities;
+    }
+
 }

@@ -14,8 +14,8 @@ public class MainDepartment {
         Region region = RegionRepository.getInstance().findOneBy("id",1);
         List<Department> departments = departmentRepository.findDepartmentsByRegion(region);
         //departments.forEach(System.out::println);
-        System.out.println(departments.get(0));
-        System.out.println(departmentRepository.findPopulationByDepartment(departments.get(0)));
+        Department department = departments.get(0);
+        System.out.println("Population dans "+department.getName()+" : "+departmentRepository.findPopulationByDepartment(departments.get(0)));
     }
 
 }

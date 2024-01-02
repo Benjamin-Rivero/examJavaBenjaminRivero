@@ -13,4 +13,8 @@ public class PostalCode implements EntityInterface {
     private Long id;
     private String code;
 
+    @Override
+    public String toString() {
+        return code;
+    }
 }
