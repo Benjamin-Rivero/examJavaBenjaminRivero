@@ -1,4 +1,4 @@
-package com.example.poec.utile;
+package com.example.poec.entity;
 
 public interface EntityInterface {
 

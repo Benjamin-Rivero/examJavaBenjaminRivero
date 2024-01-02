@@ -3,7 +3,7 @@ package com.example.poec.repository;
 
 
 import com.example.poec.service.DBConnect;
-import com.example.poec.utile.EntityInterface;
+import com.example.poec.entity.EntityInterface;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -84,7 +84,7 @@ public abstract class AbstractRepository<T extends EntityInterface> {
         List<T> objects = new ArrayList<>();
         String query = select.toString();
 
-        System.out.println("Query called : " + query);
+        //System.out.println("Query called : " + query);
         if (tmpEntities.containsKey(query)) {
             queriesFromMap++;
             return tmpEntities.get(query);
